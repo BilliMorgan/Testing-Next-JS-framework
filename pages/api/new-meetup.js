@@ -1,23 +1,28 @@
 // POST /api/new-meetup
-import { MongoClient } from "mongodb";
+import { MongoClient } from "mongodb"
+const uri =
+  "mongodb+srv://Andrii:dYtozbPxeHYQ2emW@cluster0.b7qb7.mongodb.net/?retryWrites=true&w=majority"
 
 async function hadler(req, res) {
-	if (req.method === "POST") {
-		const data = req.body;
+  try {
+    if (req.method === "POST") {
+      const data = req.body
 
-		// const {title, image, address, description } = data;
-		const client = await MongoClient.connect(
-			"mongodb+srv://Admin:Canada246!@cluster0.dvqbg.mongodb.net/?retryWrites=true&w=majority"
-		);
-		const db = client.db();
-
-		const meetupsCollection = db.collection("meetups");
-
-		const result = await meetupsCollection.insertOne(data);
-		console.log(result);
-		client.close();
-		res.status(201).json({ message: "Mettup inserted!" });
-	}
+      // const {title, image, address, description } = data;
+      const client = await MongoClient.connect(uri)
+      const db = client.db()
+      const meetupsCollection = db.collection("meetups")
+      const result = await meetupsCollection.insertOne(data)
+      console.log(result)
+      client.close()
+      res.status(201).json({ message: "Mettup inserted!" })
+    }
+  } catch (err) {
+    console.error(err)
+		return res
+      .status(500)
+      .json({ message: "Internal Server Error. Failed to add the item" })
+  }
 }
 
-export default hadler;
+export default hadler
