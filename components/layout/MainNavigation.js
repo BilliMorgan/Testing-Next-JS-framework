@@ -9,15 +9,18 @@ function MainNavigation() {
       <nav>
         <ul>
           <li>
-            <Link href='/'>All Meetups</Link>
+            <Link href="/">All Meetups</Link>
           </li>
           <li>
-            <Link href='/new-meetup'>Add New Meetup</Link>
+            <Link href="/new-meetup">Add New Meetup</Link>
+          </li>
+          <li>
+            <Link href="/about">About</Link>
           </li>
         </ul>
       </nav>
     </header>
-  );
+  )
 }
 
 export default MainNavigation;

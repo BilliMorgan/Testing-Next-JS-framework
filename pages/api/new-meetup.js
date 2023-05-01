@@ -3,19 +3,16 @@ import { MongoClient } from "mongodb"
 const uri =
   "mongodb+srv://Andrii:dYtozbPxeHYQ2emW@cluster0.b7qb7.mongodb.net/?retryWrites=true&w=majority"
 
-async function hadler(req, res) {
+async function handler(req, res) {
   try {
     if (req.method === "POST") {
       const data = req.body
-
-      // const {title, image, address, description } = data;
       const client = await MongoClient.connect(uri)
       const db = client.db()
       const meetupsCollection = db.collection("meetups")
       const result = await meetupsCollection.insertOne(data)
-      console.log(result)
       client.close()
-      res.status(201).json({ message: "Mettup inserted!" })
+      res.status(201).json({ message: "Meetup inserted!" })
     }
   } catch (err) {
     console.error(err)
@@ -25,4 +22,4 @@ async function hadler(req, res) {
   }
 }
 
-export default hadler
+export default handler

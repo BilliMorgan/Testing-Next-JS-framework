@@ -17,19 +17,8 @@ function HomePage(props) {
 		</Fragment>
 	);
 }
-// export async function getServerSideProps(contex){
-// 	const req = contex.req;
-// 	const res = contex.res;
-// 	//fetch data from an API
-// 	return {
-// 		props: {
-// 			meetups: DUMMY_MEETUPS
-// 		}
-// 	}
-// };
 
 export async function getStaticProps() {
-	//fetch data from API
 	const client = await MongoClient.connect(
     "mongodb+srv://Andrii:dYtozbPxeHYQ2emW@cluster0.b7qb7.mongodb.net/?retryWrites=true&w=majority"
   )
