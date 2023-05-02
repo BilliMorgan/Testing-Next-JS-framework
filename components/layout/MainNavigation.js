@@ -1,4 +1,5 @@
 import Link from "next/link"
+import MenuIcon from "./MenuIcon"
 import classes from './MainNavigation.module.css';
 
 function MainNavigation() {
@@ -6,6 +7,7 @@ function MainNavigation() {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>React Meetups</div>
+      <MenuIcon/>
       <nav>
         <ul>
           <li>
