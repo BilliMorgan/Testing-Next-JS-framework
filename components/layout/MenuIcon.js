@@ -1,7 +1,7 @@
 import classes from './MenuIcon.module.css'
-const MenuIcon = () => {
+const MenuIcon = ({clicked}) => {
   return (
-    <div className={classes.container}>
+    <div className={classes.container} onClick={clicked}>
       <div className={classes.menu}></div>
       <div className={classes.menu}></div>
       <div className={classes.menu}></div>

@@ -1,15 +1,19 @@
 import Link from "next/link"
 import MenuIcon from "./MenuIcon"
 import classes from './MainNavigation.module.css';
+import { useState } from "react";
 
 function MainNavigation() {
+  const [isClicked, setIsClicked] = useState(false)
 
+  const onClickHandled = () => {
+    setIsClicked(!isClicked)
+  }
   return (
     <header className={classes.header}>
       <div className={classes.logo}>React Meetups</div>
-      <MenuIcon/>
-      <nav>
-        <ul>
+      <nav className={isClicked? classes.navbar : null}>
+        <ul >
           <li>
             <Link href="/">All Meetups</Link>
           </li>
@@ -21,6 +25,7 @@ function MainNavigation() {
           </li>
         </ul>
       </nav>
+      <MenuIcon clicked={onClickHandled}/>
     </header>
   )
 }

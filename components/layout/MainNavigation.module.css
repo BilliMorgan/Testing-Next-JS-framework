@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  height: 5rem;
+  height: 6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,6 +30,7 @@
   text-decoration: none;
   font-size: 1.5rem;
   color: #fcb8d2;
+  cursor: pointer;
 }
 
 .header a:hover,
@@ -37,17 +38,23 @@
 .header a.active {
   color: white;
 }
+
 @media screen and (max-width: 900px) {
   .header a {font-size: 1rem;}
-  /* .nav a.icon {
-    float: right;
-    display: block;
-  } */
 }
 @media screen and (max-width: 600px) {
-  .header nav {display: none;}
-  /* .nav a.icon {
-    float: right;
-    display: block;
-  } */
+  .navbar {display: none;}
+
+  .header ul {
+    flex-direction: column;
+    position: absolute;
+    height: auto;
+    width: fit-content;
+    background-color: #77002e;
+    margin-top: 3rem;
+    z-index: 1;
+  }
+  .header li {
+    margin: 10px;
+  }
 }
