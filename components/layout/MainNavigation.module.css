@@ -48,10 +48,12 @@
   .header ul {
     flex-direction: column;
     position: absolute;
+    top: 6rem;
+    right: 0;
     height: auto;
     width: fit-content;
     background-color: #77002e;
-    margin-top: 3rem;
+    /* margin-top: 3rem; */
     z-index: 1;
   }
   .header li {
